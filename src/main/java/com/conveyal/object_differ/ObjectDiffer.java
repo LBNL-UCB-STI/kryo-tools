@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.lang.reflect.InaccessibleObjectException;
 import java.lang.reflect.Modifier;
 import java.util.*;
 
@@ -227,7 +226,7 @@ public class ObjectDiffer {
                     valueB = extractKeys(valueB, keyExtractor);
                 }
                 compareTwoObjects(valueA, valueB);
-            } catch (IllegalAccessException | IllegalArgumentException | InaccessibleObjectException e) {
+            } catch (IllegalAccessException | IllegalArgumentException e) {
                 throw new RuntimeException(e);
             }
             breadcrumbs.pop();
